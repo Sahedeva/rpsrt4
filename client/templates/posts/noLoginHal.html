@@ -1,0 +1,115 @@
+<template name="noLoginHal">
+	<div id="realtimeBackground" class="post">  
+    <div class="row">
+      <div id="currentRealtimePlayer" class="col-xs-4">
+        <div class="row">
+          <div class="col-xs-4">           
+            <h3 id="realtime_player_title" class="name_title">You</h3>
+            <img id="player1" src="/rps_images/defaultAvatar.jpg" alt="none">
+            <input style="display: none" id="player1win" value="0">
+            <input style="display: none" id="player1loss" value="0">
+            <input style="display: none" id="player1tie" value="0">
+            <table id="realtime_player_table" class="score_table">
+              <tr>
+                <th>Wins</th>
+                <th>Loss</th> 
+                <th>Ties</th>
+              </tr>
+              <tr>
+                <td id="pwin">0</td>
+                <td id="ploss">0</td> 
+                <td id="ptie">0</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-xs-5">
+            <div id="player_realtime_rps">
+              <div class="row">
+                <div class="col-xs-12"><img class="rps_image rps_show rps_green" id="player1rock" src="/rps_images/femalerock.jpg" alt="rock"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="rps_image rps_show rps_green" id="player1paper" src="/rps_images/femalepaper.jpg" alt="paper"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="rps_image rps_show rps_green" id="player1scissors" src="/rps_images/femalescissors.jpg" alt="scissors"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="realtimeCountdown col-xs-4">
+        <div id="go" class="countdown_results countdown_show"><img id="count_image" src="/rps_images/go.png"></div>
+        <div id="winner" class="countdown_results countdown_none"><img class="reverser" id="count_image" src="/rps_images/winner.jpg"></div>
+        <div id="loser" class="countdown_results countdown_none"><img id="count_image" src="/rps_images/loser.jpg"></div>
+        <div id="tie" class="countdown_results countdown_none"><img id="count_image" src="/rps_images/tie.jpg"></div>
+      </div>
+      <div id="opponentRealtimePlayer" class="col-xs-4">
+        <div class="row">
+          <div class="col-xs-5">
+            <div id="opponent_realtime_rps">
+              <div class="row">
+                <div class="col-xs-12"><img class="reverser rps_image rps_show rps_green" id="player2rock" src="/rps_images/malerock.jpg" alt="rock"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="reverser rps_image rps_show rps_green" id="player2paper" src="/rps_images/malepaper.jpg" alt="paper"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="reverser rps_image rps_show rps_green" id="player2scissors" src="/rps_images/malescissors.jpg" alt="scissors"/></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <h3 id="realtime_opponent_title" class="name_title">Hal-9000</h3>
+            <img class="reverser" id="player2" src="/rps_images/pickthisone.jpg" alt="none">
+            <input style="display: none" id="player2win" value="0">
+            <input style="display: none" id="player2loss" value="0">
+            <input style="display: none" id="player2tie" value="0">
+            <table id="realtime_opponent_table" class="score_table">
+              <tr>
+                <th>Wins</th>
+                <th>Loss</th> 
+                <th>Ties</th>
+              </tr>
+              <tr>
+                <td id="cwin">0</td>
+                <td id="closs">0</td> 
+                <td id="ctie">0</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <button style="display: none" id="another_game">Another game?</button> 
+  </div>
+  <audio id="goSound" class="my_audio" preload="none">
+    <source src="/audio/go.wav" type="audio/wav">
+  </audio>
+  <audio id="winnerSound" class="my_audio" preload="none">
+    <source src="/audio/victory.wav" type="audio/wav">
+  </audio>
+  <audio id="loserSound" class="my_audio" preload="none">
+    <source src="/audio/defeat.wav" type="audio/wav">
+  </audio>
+  <audio id="tieSound" class="my_audio" preload="none">
+    <source src="/audio/draw.wav" type="audio/wav">
+  </audio>
+  <audio id="rockScissorsSound" class="my_audio" preload="none">
+    <source src="/audio/rockCrushScissors.wav" type="audio/wav">
+  </audio>
+  <audio id="paperRockSound" class="my_audio" preload="none">
+    <source src="/audio/paperCoversRock.wav" type="audio/wav">
+  </audio>
+  <audio id="scissorsPaperSound" class="my_audio" preload="none">
+    <source src="/audio/scissorsCutsPaper.wav" type="audio/wav">
+  </audio>
+  <audio id="paperPaperSound" class="my_audio" preload="none">
+    <source src="/audio/paperPaper.wav" type="audio/wav">
+  </audio>
+  <audio id="rockRockSound" class="my_audio" preload="none">
+    <source src="/audio/rockRock.wav" type="audio/wav">
+  </audio>
+  <audio id="scissorsScissorsSound" class="my_audio" preload="none">
+    <source src="/audio/scissorsScissors.wav" type="audio/wav">
+  </audio>
+</template>

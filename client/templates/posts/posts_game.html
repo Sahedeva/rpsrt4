@@ -1,0 +1,87 @@
+<template name="postsGame">
+ <div class="post">
+		<div class="row">
+			<div class="col-xs-4">
+				<div class="row">
+					<div id="first" class="col-xs-6">
+						<div class="player_avatar"><img id="avatar_image" src="{{player.avatar_url}}"></div>
+						<p class = "player_name" id = "{{player.author}}">{{player.author}}</p>
+						<table id="player_table" class="score_table">
+							<tr>
+	    					<th>Wins</th>
+	    					<th>Loss</th>
+	    					<th>Tie</th>
+	  					</tr>
+						  <tr>
+						    <td id="pwin">0</td>
+						    <td id="ploss">0</td>
+						    <td id="ptie">0</td>
+						  </tr>
+						</table>
+					</div>
+					<div class="col-xs-5">
+						<div class="player_rps">
+							<div class="row">
+								<div class="col-xs-12"><img id="rock" class="rps_image play_rps" src="{{player.rock_url}}" alt="rock"></div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12"><img id="paper" class="rps_image play_rps" src="{{player.paper_url}}" alt="paper"></div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12"><img id="scissors" class="rps_image play_rps" src="{{player.scissors_url}}" alt="scissors"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="second" class="col-xs-4">
+				<div id="ready" class="countdown_results"><img id="count_image" src="{{ready}}"></div>
+				<div id="countone" style="display: none" class="countdown_results"><img id="count_image" src="{{countone}}"></div>
+				<div id="counttwo" style="display: none" class="countdown_results"><img id="count_image" src="{{counttwo}}"></div>
+				<div id="countthree" style="display: none" class="countdown_results"><img id="count_image" src="{{countthree}}"></div>
+				<div id="go" style="display: none" class="countdown_results"><img id="count_image" src="{{go}}"></div>
+				<div style="display: none" id="winner" class="countdown_results"><img id="count_image" src="{{winner}}"></div>
+				<div style="display: none" id="loser" class="countdown_results"><img id="count_image" src="{{loser}}"></div>
+				<div style="display: none" id="tie" class="countdown_results"><img id="count_image" src="{{tie}}"></div>
+			</div>
+
+			<div class="col-xs-4">
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="opponent_rps">
+							<div class="row">
+								<div class="col-xs-12"><img id="opp_rock" class="rps_image reverser" src="{{opponent_rock}}"></div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12"><img id="opp_paper" class="rps_image reverser" src="{{opponent_paper}}"></div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12"><img id="opp_scissors" class="rps_image reverser" src="{{opponent_scissors}}"></div>
+							</div>
+						</div>
+					</div>
+					<div id="third" class="col-xs-6">
+						<div class="opponent_avatar"><img class="reverser" id="avatar_image" src="{{opponent_avatar}}"></div>
+						<p class = "player_name" id = "{{opponent_name}}">{{opponent_name}}</p>
+						<table id="opponent_table" class="score_table">
+							<tr>
+	    					<th>Win</th>
+	    					<th>Loss</th>
+	    					<th>Tie</th>
+	  					</tr>
+						  <tr>
+						    <td id="cwin">0</td>
+						    <td id="closs">0</td>
+						    <td id="ctie">0</td>
+						  </tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button id="toggle_scores">Toggle Scores</button>
+		<button id="start">Another Game?</button>
+		<button id="reset_scores">Reset Scores?</button>
+
+	</div>
+</template>

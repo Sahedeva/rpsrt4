@@ -1,0 +1,33 @@
+<template name="lobby">
+	{{#each players}}
+    {{#if isCurrent author}}
+      <div id="current">
+        <input style="display: none" id="checkActive" value="{{active}}">
+        <h3 id="current_title">{{author}}</h3>
+        <img id="current_avatar" src="{{avatar_url}}" alt="{{author}}">
+        <div id="current_lobby_rps">
+          <img class="current_rps" src="{{rock_url}}" alt="Rock"/>
+          <img class="current_rps" src="{{paper_url}}" alt="Paper"/>
+          <img class="current_rps" src="{{scissors_url}}" alt="Scissors"/>
+        </div>
+    		<p class="lobby_user {{challenge}}">Ready to Challenge!</p>
+        <div class="{{accept}} challenge_form">
+          Does {{author}} accept {{challenger_name}}'s challenge?
+          <br>
+          <button class="yes" id="{{challenger_id}}" name="yes" type="button" value="yes">Let's rumble!</button>    
+          <br>
+        </div>
+        <div id="reject" class="challenger"></div>
+      </div>
+    {{else}}
+      <h3 class="name_title">{{author}}</h3>
+      <img class="lobby_avatar" src="{{avatar_url}}" alt="{{author}}">
+      <div class="lobby_rps">
+        <img class="rps_image" src="{{rock_url}}" alt="Rock"/>
+        <img class="rps_image" src="{{paper_url}}" alt="Paper"/>
+        <img class="rps_image" src="{{scissors_url}}" alt="Scissors"/>
+      </div>
+			<button class="lobby_challengers" id="{{_id}}" name="{{author}}" type="button" value="{{author}}">Challenge!</button>    
+		{{/if}}  
+	{{/each}}
+</template>

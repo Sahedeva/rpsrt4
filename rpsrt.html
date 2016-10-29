@@ -1,0 +1,125 @@
+<template name = "newUser">
+  <br><br>
+  <p id='first_choice_title'>Choose avatar general type</p>
+  <p style="display: none" id='class_choice_title'>Choose class of comabatant</p>
+  <p style="display: none" id='element_choice_title'>Choose element of comabatant</p>
+  <p style="display: none" id='custom_title'>Input Url of Avatar Image</p>
+  <br><br><br>
+  <div class="row">
+    <div class="col-xs-3">
+      <div id="avatar_text"></div>
+      <div id="avatar_placeholder"></div>
+      <div id="player_name" style="display: none">{{author}}</div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-1">
+      <div id="rps_placeholder"></div>
+      <div class="row">
+        <div class="col-xs-3"><div class="rps_text" style="display: none" id="rock_image">Rock</div><br><div id="rock_placeholder"></div></div>
+        <div class="col-xs-3"><div class="rps_text" style="display: none" id="paper_image">Paper</div><br><div id="paper_placeholder"></div></div>
+        <div class="col-xs-3"><div class="rps_text" style="display: none" id="scissors_image">Scissors</div><br><div id="scissors_placeholder"></div></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <p style="display: none" id='rps_title'>Choose the type of troops you will lead to victory!</p>
+  <div class="row">
+    <div id="first_choice_div" class="col-sx-12">
+      <img class="first_choice female" id="female" src="/choice_images/femaleSilhouette.jpg">
+      <img class="first_choice male" id="male" src="/choice_images/maleSilhouette.jpg">
+      <img class="first_choice cat" id="cat" src="/choice_images/catSilhouette.jpeg">
+      <img class="first_choice dog" id="dog" src="/choice_images/dogSilhouette.jpg">
+      <img class="first_choice abstract" id="abstract" src="/choice_images/abstractSilhouette.jpg">
+      <img class="first_choice custom" id="custom" src="/choice_images/questionSilhouette.jpg">
+    </div>
+  </div>
+  <div class="row">
+    <div style="display: none" id="class_choice_div" class="col-sx-12">
+      <img class="second_choice" id="jedi" src="/class_choices/jedi.png">
+      <img class="second_choice" id="warrior" src="/class_choices/warrior.jpg">
+      <img class="second_choice" id="wizard" src="/class_choices/wizard.jpg">
+      <img class="second_choice" id="healer" src="/class_choices/healer.png">
+    </div>
+  </div>
+  <div class="row">
+    <div style="display: none" id="element_choice_div" class="col-sx-12">
+      <img class="second_choice" id="earth" src="/element_choices/earth.jpg">
+      <img class="second_choice" id="wind" src="/element_choices/wind.jpg">
+      <img class="second_choice" id="fire" src="/element_choices/fire.jpg">
+      <img class="second_choice" id="water" src="/element_choices/water.jpg">
+    </div>
+  </div>
+  <div class="row">
+    <div style="display: none" id="rps_choice_div" class="col-sx-12">
+      <img class="rps_choice female" id="female" src="/choice_images/femaleSilhouette.jpg">
+      <img class="rps_choice male" id="male" src="/choice_images/maleSilhouette.jpg">
+      <img class="rps_choice cat" id="cat" src="/choice_images/catSilhouette.jpeg">
+      <img class="rps_choice dog" id="dog" src="/choice_images/dogSilhouette.jpg">
+      <img class="rps_choice modern" id="modern" src="/choice_images/modern.jpg">
+      <img class="rps_choice ancient" id="ancient" src="/choice_images/ancient.jpg">
+      <img class="rps_choice custom" id="custom" src="/choice_images/questionSilhouette.jpg">
+    </div>
+  </div>
+  <form id="custom_avatar_form">
+      <input style="display: none" id="custom_avatar" type="text" name="custom_avatar" placeholder="Type avatar url" size="70"/>
+  </form>
+  <form id="custom_rock_form">
+      <input style="display: none" id="custom_rock" type="text" name="custom_rock" placeholder="Type rock image url" />
+  </form>
+  <form id="custom_paper_form">
+    <input style="display: none" id="custom_paper" type="text" name="custom_paper" placeholder="Type paper image url" />
+  </form>
+  <form id="custom_scissors_form">
+    <input style="display: none" id="custom_scissors" type="text" name="custom_scissors" placeholder="Type scissors image url" />
+  </form>
+  <audio id="femaleSound" class="my_audio" preload="none">
+    <source src="/audio/female.wav" type="audio/wav">
+  </audio>
+  <audio id="maleSound" class="my_audio" preload="none">
+    <source src="/audio/male.wav" type="audio/wav">
+  </audio>
+  <audio id="catSound" class="my_audio" preload="none">
+    <source src="/audio/cat.wav" type="audio/wav">
+  </audio>
+  <audio id="dogSound" class="my_audio" preload="none">
+    <source src="/audio/dog.wav" type="audio/wav">
+  </audio>
+  <audio id="elementSound" class="my_audio" preload="none">
+    <source src="/audio/element.wav" type="audio/wav">
+  </audio>
+  <audio id="customSound" class="my_audio" preload="none">
+    <source src="/audio/custom.wav" type="audio/wav">
+  </audio>
+  <audio id="jediSound" class="my_audio" preload="none">
+    <source src="/audio/jedi.wav" type="audio/wav">
+  </audio>
+  <audio id="modernSound" class="my_audio" preload="none">
+    <source src="/audio/modern.wav" type="audio/wav">
+  </audio>
+  <audio id="ancientSound" class="my_audio" preload="none">
+    <source src="/audio/ancient.wav" type="audio/wav">
+  </audio>
+  <audio id="warriorSound" class="my_audio" preload="none">
+    <source src="/audio/warrior.wav" type="audio/wav">
+  </audio>
+  <audio id="wizardSound" class="my_audio" preload="none">
+    <source src="/audio/wizard.wav" type="audio/wav">
+  </audio>
+  <audio id="healerSound" class="my_audio" preload="none">
+    <source src="/audio/healer.wav" type="audio/wav">
+  </audio>
+  <audio id="rockSound" class="my_audio" preload="none">
+    <source src="/audio/rock.wav" type="audio/wav">
+  </audio>
+  <audio id="paperSound" class="my_audio" preload="none">
+    <source src="/audio/paper.wav" type="audio/wav">
+  </audio>
+  <audio id="scissorsSound" class="my_audio" preload="none">
+    <source src="/audio/scissors.wav" type="audio/wav">
+  </audio>
+  <audio id="generalSound" class="my_audio" preload="none">
+    <source src="/audio/chooseGeneralAvatar.wav" type="audio/wav">
+  </audio>
+  <audio id="troopsSound" class="my_audio" preload="none">
+    <source src="/audio/chooseTroops.wav" type="audio/wav">
+  </audio>
+</template>

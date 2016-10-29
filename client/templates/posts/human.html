@@ -1,0 +1,140 @@
+<template name="human">
+	<div id="realtimeBackground" class="post">  
+    <div class="row">
+      <div id="currentRealtimePlayer" class="col-xs-4">
+        <div class="row">
+          <div class="col-xs-4">           
+            <h3 id="realtime_player_title" class="name_title">{{player.author}}</h3>
+            <img id="player1" src="{{player.avatar_url}}" alt="{{player.choice}}">
+            <input style="display: none" id="player1win" value="{{player.win}}">
+            <input style="display: none" id="player1loss" value="{{player.loss}}">
+            <input style="display: none" id="player1tie" value="{{player.tie}}">
+            <table id="realtime_player_table" class="score_table">
+              <tr>
+                <th>Wins</th>
+                <th>Loss</th> 
+                <th>Tie</th>
+              </tr>
+              <tr>
+                <td id="pwin">{{player.win}}</td>
+                <td id="ploss">{{player.loss}}</td> 
+                <td id="ptie">{{player.tie}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-xs-5">
+            <div id="player_realtime_rps">
+              <div class="row">
+                <div class="col-xs-12"><img class="rps_image {{player.rock_class}}" id="player1rock" src="{{player.rock_url}}" alt="{{player._id}}"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="rps_image {{player.paper_class}}" id="player1paper" src="{{player.paper_url}}" alt="{{player.countdownTimer}}"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="rps_image {{player.scissors_class}}" id="player1scissors" src="{{player.scissors_url}}" alt="{{player._id}}"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="realtimeCountdown col-xs-4">
+        <div id="ready" class="countdown_results  {{player.ready_class}}"><img id="count_image" src="/rps_images/ready.png"></div>
+        <div id="countone" class="countdown_results {{player.countone_class}}"><img id="count_image" src="/rps_images/countOne.jpg"></div>
+        <div id="counttwo" class="countdown_results {{player.counttwo_class}}"><img id="count_image" src="/rps_images/countTwo.png"></div>
+        <div id="countthree" class="countdown_results {{player.countthree_class}}"><img id="count_image" src="/rps_images/countThree.png"></div>
+        <div id="go" class="countdown_results {{player.go_class}}"><img id="count_image" src="/rps_images/go.png"></div>
+        <div id="winner" class="countdown_results {{player.win_class}}"><img class="reverser" id="count_image" src="/rps_images/winner.jpg"></div>
+        <div id="loser" class="countdown_results {{player.lose_class}}"><img id="count_image" src="/rps_images/loser.jpg"></div>
+        <div id="tie" class="countdown_results {{player.tie_class}}"><img id="count_image" src="/rps_images/tie.jpg"></div>
+      </div>
+      <div id="opponentRealtimePlayer" class="col-xs-4">
+        <div class="row">
+          <div class="col-xs-5">
+            <div id="opponent_realtime_rps">
+              <div class="row">
+                <div class="col-xs-12"><img class="reverser rps_image {{opp.rock_class}}" id="player2rock" src="{{opp.rock_url}}" alt="{{opp._id}}"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="reverser rps_image {{opp.paper_class}}" id="player2paper" src="{{opp.paper_url}}" alt="{{opp._id}}"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="reverser rps_image {{opp.scissors_class}}" id="player2scissors" src="{{opp.scissors_url}}" alt="{{opp._id}}"/></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <h3 id="realtime_opponent_title" class="name_title">{{opp.author}}</h3>
+            <img class="reverser" id="player2" src="{{opp.avatar_url}}" alt="{{opp.choice}}">
+            <input style="display: none" id="player2win" value="{{opp.win}}">
+            <input style="display: none" id="player2loss" value="{{opp.loss}}">
+            <input style="display: none" id="player2tie" value="{{opp.tie}}">
+            <table id="realtime_opponent_table" class="score_table">
+              <tr>
+                <th>Win</th>
+                <th>Loss</th> 
+                <th>Tie</th>
+              </tr>
+              <tr>
+                <td id="cwin">{{opp.win}}</td>
+                <td id="closs">{{opp.loss}}</td> 
+                <td id="ctie">{{opp.tie}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <button id="another_game" class="{{player.another}}">Another game?</button> 
+  </div>
+  <audio id="readySound" class="my_audio" preload="none">
+    <source src="/audio/ready.wav" type="audio/wav">
+  </audio>
+  <audio id="oneSound" class="my_audio" preload="none">
+    <source src="/audio/one.wav" type="audio/wav">
+  </audio>
+  <audio id="twoSound" class="my_audio" preload="none">
+    <source src="/audio/two.wav" type="audio/wav">
+  </audio>
+  <audio id="threeSound" class="my_audio" preload="none">
+    <source src="/audio/three.wav" type="audio/wav">
+  </audio>
+  <audio id="goSound" class="my_audio" preload="none">
+    <source src="/audio/go.wav" type="audio/wav">
+  </audio>
+  <audio id="winnerSound" class="my_audio" preload="none">
+    <source src="/audio/victory.wav" type="audio/wav">
+  </audio>
+  <audio id="loserSound" class="my_audio" preload="none">
+    <source src="/audio/defeat.wav" type="audio/wav">
+  </audio>
+  <audio id="tieSound" class="my_audio" preload="none">
+    <source src="/audio/draw.wav" type="audio/wav">
+  </audio>
+  <audio id="rockScissorsSound" class="my_audio" preload="none">
+    <source src="/audio/rockCrushScissors.wav" type="audio/wav">
+  </audio>
+  <audio id="paperRockSound" class="my_audio" preload="none">
+    <source src="/audio/paperCoversRock.wav" type="audio/wav">
+  </audio>
+  <audio id="scissorsPaperSound" class="my_audio" preload="none">
+    <source src="/audio/scissorsCutsPaper.wav" type="audio/wav">
+  </audio>
+  <audio id="paperPaperSound" class="my_audio" preload="none">
+    <source src="/audio/paperPaper.wav" type="audio/wav">
+  </audio>
+  <audio id="rockRockSound" class="my_audio" preload="none">
+    <source src="/audio/rockRock.wav" type="audio/wav">
+  </audio>
+  <audio id="scissorsScissorsSound" class="my_audio" preload="none">
+    <source src="/audio/scissorsScissors.wav" type="audio/wav">
+  </audio>
+  <audio id="bothTooSlowSound" class="my_audio" preload="none">
+    <source src="/audio/bothTooSlow.wav" type="audio/wav">
+  </audio>
+  <audio id="opponentTooSlowSound" class="my_audio" preload="none">
+    <source src="/audio/opponentTooSlow.wav" type="audio/wav">
+  </audio>
+  <audio id="tooSlowSound" class="my_audio" preload="none">
+    <source src="/audio/tooSlow.wav" type="audio/wav">
+  </audio>
+</template>

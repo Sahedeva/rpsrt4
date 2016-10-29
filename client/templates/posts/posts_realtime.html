@@ -1,0 +1,97 @@
+<template name="postsRealtime">
+  <div id="realtimeBackground" class="post">
+  {{#each players}}
+    <div class="row">
+      {{#if isCurrent author}}
+      <div id="currentRealtimePlayer" class="col-xs-4">
+        <div class="row">
+          <div class="col-xs-4">
+            <h3 id="realtime_player_title" class="name_title">{{author}}</h3>
+            <img id="{{player}}" src="{{avatar_url}}" alt="{{choice}}">
+            <input style="display: none" id="{{player}}win" value={{win}}>
+            <input style="display: none" id="{{player}}loss" value={{loss}}>
+            <input style="display: none" id="{{player}}tie" value={{tie}}>
+            <table id="realtime_player_table" class="score_table">
+              <tr>
+                <th>Wins</th>
+                <th>Loss</th>
+                <th>Tie</th>
+              </tr>
+              <tr>
+                <td id="pwin">{{win}}</td>
+                <td id="ploss">{{loss}}</td>
+                <td id="ptie">{{tie}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-xs-5">
+            <div id="player_realtime_rps">
+              <div class="row">
+                <div class="col-xs-12"><img class="rps_image {{rock_class}}" id="{{player}}rock" src="{{rock_url}}" alt="{{_id}}"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="rps_image {{paper_class}}" id="{{player}}paper" src="{{paper_url}}" alt="{{_id}}"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="rps_image {{scissors_class}}" id="{{player}}scissors" src="{{scissors_url}}" alt="{{_id}}"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ready_col col-xs-2">
+        <div id="{{player}}ready" class="realtime_ready {{ready1_class}}" title="no">{{ready1_text}}</div>
+      </div>
+      <div class="realtimeCountdown col-xs-4">
+        <div id="ready" style="display: none" class="countdown_results  {{ready_class}}"><img id="count_image" src="http://img14.deviantart.net/8841/i/2012/348/5/c/spongebob__are_you_ready__bubbles_by_catz537-d5o1ap0.png"></div>
+        <div id="countone" style="display: none" class="countdown_results {{countone_class}}"><img id="count_image" src="https://marcojohnsonblog.files.wordpress.com/2014/10/count-sesame-street.jpg"></div>
+        <div id="counttwo" style="display: none" class="countdown_results {{counttwo_class}}"><img id="count_image" src="https://muppetmindset.files.wordpress.com/2009/12/count-bats.png"></div>
+        <div id="countthree" style="display: none" class="countdown_results {{countthree_class}}"><img id="count_image" src="/rps_images/counttothree.png"></div>
+        <div id="go" style="display: none" class="countdown_results {{go_class}}"><img id="count_image" src="http://2.bp.blogspot.com/-FfOLA82EikQ/VKd1dhH_eFI/AAAAAAAAGn4/6WIjRzgHaTU/s1600/go.png"></div>
+        <div style="display: none" id="winner" class="countdown_results {{win_class}}"><img id="count_image" src="http://www.reunionsmag.com/images/computer-winner1.jpg"></div>
+        <div style="display: none" id="loser" class="countdown_results {{lose_class}}"><img id="count_image" src="http://recruitingdaily.com/wp-content/uploads/sites/6/2014/08/HelloLoserPX1.jpg"></div>
+        <div style="display: none" id="tie" class="countdown_results {{tie_class}}"><img id="count_image" src="http://cdn.meme.am/instances/57849610.jpg"></div>
+      </div>
+      {{else}}
+      <div id="opponentRealtimePlayer" class="col-xs-4">
+        <div class="row">
+          <div class="col-xs-5">
+            <div id="opponent_realtime_rps">
+              <div class="row">
+                <div class="col-xs-12"><img class="reverser rps_image {{rock_class}}" id="{{player}}rock" src="{{rock_url}}" alt="{{_id}}"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="reverser rps_image {{paper_class}}" id="{{player}}paper" src="{{paper_url}}" alt="{{_id}}"/></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><img class="reverser rps_image {{scissors_class}}" id="{{player}}scissors" src="{{scissors_url}}" alt="{{_id}}"/></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <h3 id="realtime_opponent_title" class="name_title">{{author}}</h3>
+            <img class="reverser" id="{{player}}" src="{{avatar_url}}" alt="{{choice}}">
+            <input style="display: none" id="{{player}}win" value={{win}}>
+            <input style="display: none" id="{{player}}loss" value={{loss}}>
+            <input style="display: none" id="{{player}}tie" value={{tie}}>
+            <table id="realtime_opponent_table" class="score_table">
+              <tr>
+                <th>Win</th>
+                <th>Loss</th>
+                <th>Tie</th>
+              </tr>
+              <tr>
+                <td id="cwin">{{win}}</td>
+                <td id="closs">{{loss}}</td>
+                <td id="ctie">{{tie}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+    {{/each}}
+    <button id="another_game">Another game?</button>
+  </div>
+</template>
