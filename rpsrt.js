@@ -201,10 +201,10 @@ if (Meteor.isClient) {
           $("#avatar_placeholder").append('<img id="chosen_avatar" src="/rps_images/cat-healer.jpg">');
         } else if (choice1 === "dog"){
           console.log("Dog Healer choice");
-          Meteor.call('modifyUsersAvatar', '/rps_images/dog-healer.jpg');
+          Meteor.call('modifyUsersAvatar', '/rps_images/dog-healer.jpeg');
           $("#avatar_text").html("Dog Healer");
           document.getElementById('player_name').style.display = '';
-          $("#avatar_placeholder").append('<img id="chosen_avatar" src="/rps_images/dog-healer.jpg">');
+          $("#avatar_placeholder").append('<img id="chosen_avatar" src="/rps_images/dog-healer.jpeg">');
         }
       } else if (choice2 === "earth") {
         console.log("earth");
@@ -217,7 +217,7 @@ if (Meteor.isClient) {
         Meteor.call('modifyUsersAvatar', '/rps_images/pattern2.jpg');
         $("#avatar_text").html("Wind");
         document.getElementById('player_name').style.display = '';
-        $("#avatar_placeholder").append('<img id="chosen_avatar" src="/rps_images/patternw.jpg">');
+        $("#avatar_placeholder").append('<img id="chosen_avatar" src="/rps_images/pattern2.jpg">');
       } else if (choice2 === "fire") {
         console.log("fire");
         Meteor.call('modifyUsersAvatar', '/rps_images/pattern3.jpg');

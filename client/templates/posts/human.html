@@ -1,24 +1,27 @@
 <template name="human">
-	<div id="realtimeBackground" class="post">  
+	<div id="realtimeBackground" class="post">
     <div class="row">
       <div id="currentRealtimePlayer" class="col-xs-4">
         <div class="row">
-          <div class="col-xs-4">           
+          <div class="col-xs-4">
             <h3 id="realtime_player_title" class="name_title">{{player.author}}</h3>
             <img id="player1" src="{{player.avatar_url}}" alt="{{player.choice}}">
             <input style="display: none" id="player1win" value="{{player.win}}">
+						<input style="display: none" id="player1winD" value="{{player.winD}}">
             <input style="display: none" id="player1loss" value="{{player.loss}}">
+						<input style="display: none" id="player1lossD" value="{{player.lossD}}">
             <input style="display: none" id="player1tie" value="{{player.tie}}">
+						<input style="display: none" id="player1tieD" value="{{player.tieD}}">
             <table id="realtime_player_table" class="score_table">
               <tr>
                 <th>Wins</th>
-                <th>Loss</th> 
+                <th>Loss</th>
                 <th>Tie</th>
               </tr>
               <tr>
-                <td id="pwin">{{player.win}}</td>
-                <td id="ploss">{{player.loss}}</td> 
-                <td id="ptie">{{player.tie}}</td>
+                <td id="pwin">{{player.win}}({{player.winD}})</td>
+                <td id="ploss">{{player.loss}}({{player.lossD}})</td>
+                <td id="ptie">{{player.tie}}({{player.tieD}})</td>
               </tr>
             </table>
           </div>
@@ -44,8 +47,11 @@
         <div id="countthree" class="countdown_results {{player.countthree_class}}"><img id="count_image" src="/rps_images/countThree.png"></div>
         <div id="go" class="countdown_results {{player.go_class}}"><img id="count_image" src="/rps_images/go.png"></div>
         <div id="winner" class="countdown_results {{player.win_class}}"><img class="reverser" id="count_image" src="/rps_images/winner.jpg"></div>
+				<div id="winnerD" class="countdown_results {{player.winD_class}}"><img id="count_image" src="/rps_images/winnerD.jpg"></div>
         <div id="loser" class="countdown_results {{player.lose_class}}"><img id="count_image" src="/rps_images/loser.jpg"></div>
+				<div id="loser" class="countdown_results {{player.loseD_class}}"><img id="count_image" src="/rps_images/loserD.jpg"></div>
         <div id="tie" class="countdown_results {{player.tie_class}}"><img id="count_image" src="/rps_images/tie.jpg"></div>
+				<div id="tie" class="countdown_results {{player.tieD_class}}"><img id="count_image" src="/rps_images/tieD.jpg"></div>
       </div>
       <div id="opponentRealtimePlayer" class="col-xs-4">
         <div class="row">
@@ -66,25 +72,28 @@
             <h3 id="realtime_opponent_title" class="name_title">{{opp.author}}</h3>
             <img class="reverser" id="player2" src="{{opp.avatar_url}}" alt="{{opp.choice}}">
             <input style="display: none" id="player2win" value="{{opp.win}}">
+						<input style="display: none" id="player2winD" value="{{opp.winD}}">
             <input style="display: none" id="player2loss" value="{{opp.loss}}">
+						<input style="display: none" id="player2lossD" value="{{opp.lossD}}">
             <input style="display: none" id="player2tie" value="{{opp.tie}}">
+						<input style="display: none" id="player2tieD" value="{{opp.tieD}}">
             <table id="realtime_opponent_table" class="score_table">
               <tr>
                 <th>Win</th>
-                <th>Loss</th> 
+                <th>Loss</th>
                 <th>Tie</th>
               </tr>
               <tr>
-                <td id="cwin">{{opp.win}}</td>
-                <td id="closs">{{opp.loss}}</td> 
-                <td id="ctie">{{opp.tie}}</td>
+                <td id="cwin">{{opp.win}}({{opp.winD}})</td>
+                <td id="closs">{{opp.loss}}({{opp.lossD}})</td>
+                <td id="ctie">{{opp.tie}}({{opp.tieD}})</td>
               </tr>
             </table>
           </div>
         </div>
-      </div>  
+      </div>
     </div>
-    <button id="another_game" class="{{player.another}}">Another game?</button> 
+    <button id="another_game" class="{{player.another}}">Another game?</button>
   </div>
   <audio id="readySound" class="my_audio" preload="none">
     <source src="/audio/ready.wav" type="audio/wav">

@@ -2,7 +2,7 @@ if (Meteor.isClient) {
   function countdown_timer() {
     var id = $("#player1rock").attr('alt');
     var game_id = {id: id};
-    var changes = {win_class: 'countdown_none',lose_class: 'countdown_none',tie_class: 'countdown_none',ready_class: 'countdown_show'};
+    var changes = {win_class: 'countdown_none',lose_class: 'countdown_none',tie_class: 'countdown_none',winD_class: 'countdown_none',loseD_class: 'countdown_none',tieD_class: 'countdown_none',ready_class: 'countdown_show'};
     Meteor.call('realtimeGameUpdate', changes, game_id, function(error, result){
         if (error)
           console.log(error)
@@ -101,10 +101,10 @@ if (Meteor.isClient) {
 		          },2200);
 		        },500);
 		      } else {
-		      	var player1win = parseInt($("#player1win").val());
-		        var win = player1win += 1;
+		      	var player1win = parseInt($("#player1winD").val());
+		        var winD = player1winD += 1;
 		        console.log("Player 2 chose nothing - you win");
-		        var changes = {wlt: 'win', win: win, go_class: 'countdown_none', win_class: 'countdown_show', another: 'show'};
+		        var changes = {wlt: 'win', winD: winD, go_class: 'countdown_none', winD_class: 'countdown_show', another: 'show'};
 		    		Meteor.call('realtimeGameUpdate', changes, game_id, function(error, result){
 				      if (error)
 				        console.log(error)
@@ -179,10 +179,10 @@ if (Meteor.isClient) {
 		          },2000);
 		        },500);
 		      } else {
-		      	var player1win = parseInt($("#player1win").val());
-		        var win = player1win += 1;
+		      	var player1winD = parseInt($("#player1winD").val());
+		        var winD = player1winD += 1;
 		        console.log("Player 2 chose nothing - you win");
-		        var changes = {wlt: 'win', win: win, go_class: 'countdown_none', win_class: 'countdown_show', another: 'show'};
+		        var changes = {wlt: 'win', winD: winD, go_class: 'countdown_none', winD_class: 'countdown_show', another: 'show'};
 		    		Meteor.call('realtimeGameUpdate', changes, game_id, function(error, result){
 				      if (error)
 				        console.log(error)
@@ -257,10 +257,10 @@ if (Meteor.isClient) {
 		          },2000);
 		        },500);
 		      } else {
-		      	var player1win = parseInt($("#player1win").val());
-		        var win = player1win += 1;
+		      	var player1winD = parseInt($("#player1winD").val());
+		        var winD = player1winD += 1;
 		        console.log("Player 2 chose nothing - you win");
-		        var changes = {wlt: 'win', win: win, go_class: 'countdown_none', win_class: 'countdown_show', another: 'show'};
+		        var changes = {wlt: 'win', winD: winD, go_class: 'countdown_none', winD_class: 'countdown_show', another: 'show'};
 		    		Meteor.call('realtimeGameUpdate', changes, game_id, function(error, result){
 				      if (error)
 				        console.log(error)
@@ -278,8 +278,10 @@ if (Meteor.isClient) {
 		      }
 		    } else {
 		    	if (choice2 ==="rock") {
+            var player1lossD = parseInt($("#player1lossD").val());
+		        var lossD = player1lossD += 1;
 		    		console.log("You chose nothing and opponent chose rock - you lose");
-		    		var changes = {wlt: 'lose', loss: loss, go_class: 'countdown_none', lose_class: 'countdown_show', another: 'show'};
+		    		var changes = {wlt: 'lose', lossD: lossD, go_class: 'countdown_none', loseD_class: 'countdown_show', another: 'show'};
 		    		Meteor.call('realtimeGameUpdate', changes, game_id, function(error, result){
 				      if (error)
 				        console.log(error)
@@ -295,8 +297,10 @@ if (Meteor.isClient) {
 		          },2000);
 		        },500);
 		    	} else if (choice2 ==="paper") {
+            var player1lossD = parseInt($("#player1lossD").val());
+		        var lossD = player1lossD += 1;
 		    		console.log("You chose nothing and opponent chose paper - you lose");
-		    		var changes = {wlt: 'lose', loss: loss, go_class: 'countdown_none', lose_class: 'countdown_show', another: 'show'};
+		    		var changes = {wlt: 'lose', lossD: lossD, go_class: 'countdown_none', loseD_class: 'countdown_show', another: 'show'};
 		    		Meteor.call('realtimeGameUpdate', changes, game_id, function(error, result){
 				      if (error)
 				        console.log(error)
@@ -312,8 +316,10 @@ if (Meteor.isClient) {
 		          },2000);
 		        },500);
 		    	} else if (choice2 ==="scissors") {
+            var player1lossD = parseInt($("#player1lossD").val());
+		        var lossD = player1lossD += 1;
 		    		console.log("You chose nothing and opponent chose scissors - you lose");
-		    		var changes = {wlt: 'lose', loss: loss, go_class: 'countdown_none', lose_class: 'countdown_show', another: 'show'};
+		    		var changes = {wlt: 'lose', lossD: lossD, go_class: 'countdown_none', loseD_class: 'countdown_show', another: 'show'};
 		    		Meteor.call('realtimeGameUpdate', changes, game_id, function(error, result){
 				      if (error)
 				        console.log(error)
@@ -329,8 +335,10 @@ if (Meteor.isClient) {
 		          },2000);
 		        },500);
 		    	} else {
+            var player1tieD = parseInt($("#player1tieD").val());
+		        var tieD = player1tieD += 1;
 		    		console.log("You chose nothing and opponent chose nothing - you tie");
-		    		var changes = {wlt: 'tie', tie: tie, go_class: 'countdown_none', tie_class: 'countdown_show', another: 'show'};
+		    		var changes = {wlt: 'tie', tieD: tieD, go_class: 'countdown_none', tieD_class: 'countdown_show', another: 'show'};
 		    		Meteor.call('realtimeGameUpdate', changes, game_id, function(error, result){
 				      if (error)
 				        console.log(error)
@@ -347,7 +355,7 @@ if (Meteor.isClient) {
 		        },500);
 		    	}
 		    }
-		  }, 1300);
+		  }, 700);
     }, 6200);
     setTimeout(function(){
       var changes = {counttwo_class: 'countdown_none', countthree_class: 'countdown_show'};
